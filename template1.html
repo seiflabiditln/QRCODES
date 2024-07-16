@@ -3,13 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Mouma</title>
+    <title>Contact Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #2e3b85;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            position: absolute;
+            top: 20px;
+            left: calc(50% - 50px);
+        }
+
+        header h1 {
+            margin: 60px 0 10px;
+        }
+
+        header p {
+            margin: 0;
+        }
+
+        .contact-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+
+        section {
+            padding: 20px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        section h2 {
+            margin-top: 0;
+        }
+
+        section p {
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2e3b85;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1d285d;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Template 1</h1>
-        <p>This is a sample template.</p>
+        <header>
+            <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-pic">
+            <h1>Maher FATNASSI</h1>
+            <p>Shipping Department</p>
+            <div class="contact-icons">
+                <a href="tel:+21648083972">📞</a>
+                <a href="sms:+21648083972">✉️</a>
+                <a href="mailto:mfatnassi@saheltunisie.com">📧</a>
+                <a href="#">👤</a>
+            </div>
+        </header>
+        <section class="contact">
+            <h2>Contact</h2>
+            <p><strong>Name:</strong> Maher FATNASSI</p>
+            <p><strong>Mobile:</strong> <a href="tel:+21648083972">+216 48 083 972</a></p>
+            <p><strong>Work Phone:</strong> <a href="tel:+21673202430">+216 73 202 430</a></p>
+            <p><strong>Email:</strong> <a href="mailto:mfatnassi@saheltunisie.com">mfatnassi@saheltunisie.com</a></p>
+            <p><strong>Company:</strong> Sahel Line</p>
+        </section>
+        <section class="location">
+            <h2>Location</h2>
+            <p>Rue Taieb Ghachem Immeuble Douik 4000 Sousse - Tunisie</p>
+            <button onclick="window.open('https://www.google.com/maps?q=Rue+Taieb+Ghachem+Immeuble+Douik+4000+Sousse+-+Tunisie', '_blank')">Show on Map</button>
+        </section>
+        <section class="web-links">
+            <h2>Web Links</h2>
+            <p><a href="#">My Website</a></p>
+            <p><a href="#">LinkedIn</a></p>
+        </section>
     </div>
 </body>
 </html>
