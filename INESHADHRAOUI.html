@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ines HADHRAOUI - Finance Department</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2e3b85;
+            margin: 0;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            overflow: hidden; /* Hide overflow to prevent scrolling during preload */
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .preloader img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .container {
+            display: none; /* Hide container initially */
+            width: 90%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #2e3b85;
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px 10px; /* Adjust padding to move the logo down */
+            position: relative;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: auto;
+            position: absolute;
+            top: 10px; /* Adjust top to move the logo down */
+            left: calc(50% - 50px);
+        }
+
+        header h1 {
+            margin: 80px 0 10px;
+            font-size: 24px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .contact-icons {
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        section {
+            padding: 20px;
+            border-top: 1px solid #f0f0f0;
+            background-color: #fff;
+            border-left: 4px solid #2e3b85;
+            border-right: 4px solid #2e3b85;
+            margin: 0;
+        }
+
+        section + section {
+            margin-top: 0;
+        }
+
+        section h2 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        section p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2e3b85;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1d285d;
+        }
+
+        .web-links a {
+            color: #2e3b85;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .web-links i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="preloader">
+        <img src="logo-sahel-blu.png" alt="Loading Logo">
+    </div>
+    <div class="container">
+        <header>
+            <img src="logo-sahel-blu.png" alt="Profile Picture" class="profile-pic">
+            <h1>Ines HADHRAOUI</h1>
+            <p>Finance Department</p>
+            <div class="contact-icons">
+                <a href="tel:+21648083974"><i class="fas fa-phone-alt"></i></a>
+                <a href="sms:+21648083974"><i class="fas fa-sms"></i></a>
+                <a href="mailto:ihadhraoui@saheltunisie.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/company/sahel-line/?trk=public_profile_experience-item_profile-section-card_image-click&originalSubdomain=tn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </header>
+        <section class="contact">
+            <h2>Contact</h2>
+            <p><strong>Mobile:</strong> <a href="tel:+21648083974">+216 48 083 974</a></p>
+            <p><strong>Work Phone:</strong> <a href="tel:+21673202430">+216 73 202 430</a></p>
+            <p><strong>Fax:</strong> +216 73 202 432</p>
+            <p><strong>Email:</strong> <a href="mailto:ihadhraoui@saheltunisie.com">ihadhraoui@saheltunisie.com</a></p>
+            <p><strong>Company:</strong> Sahel Line</p>
+        </section>
+        <section class="location">
+            <h2>Location</h2>
+            <p>Rue Taieb Ghachem Immeuble Douik 4000 Sousse - Tunisie</p>
+            <button onclick="window.open('https://www.google.com/maps?q=Rue Taieb Ghachem Immeuble Douik 4000 Sousse - Tunisie', '_blank')">Show on Map</button>
+        </section>
+        <section class="web-links">
+            <h2>Web Links</h2>
+            <p><a href="https://www.linkedin.com/company/sahel-line/?trk=public_profile_experience-item_profile-section-card_image-click&originalSubdomain=tn"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+        </section>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            const container = document.querySelector('.container');
+
+            preloader.style.opacity = '0';
+            preloader.style.transition = 'opacity 1s ease';
+
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                container.style.display = 'block';
+                document.body.style.overflow = 'auto'; // Enable scrolling after load
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
