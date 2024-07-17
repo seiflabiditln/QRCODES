@@ -3,170 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Business Card</title>
+    <title>Monem GALLOUJI - Sales Department</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond');
-
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2e3b85;
+            margin: 0;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            overflow: hidden; /* Hide overflow to prevent scrolling during preload */
         }
 
-        html {
-            font-family: "Cormorant Garamond", serif;
-            text-transform: uppercase;
-            box-sizing: inherit;
-            font-size: 10.5px;
-            letter-spacing: 1px;
-            text-shadow: 0 0 2px rgba(0, 0, 0, .5),
-                          -1px -1px 1px rgba(179, 179, 179, .5),
-                          1px 1px 0 rgba(255, 255, 255, 0.55),
-                          0 1px 3px white;
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .preloader img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .container {
+            display: none; /* Hide container initially */
+            width: 90%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            color: #191919;
-            background-color: azure;
+        }
+
+        header {
+            background-color: #2e3b85;
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px 10px; /* Adjust padding to move the logo down */
+            position: relative;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: auto;
+            position: absolute;
+            top: 10px; /* Adjust top to move the logo down */
+            left: calc(50% - 50px);
+        }
+
+        header h1 {
+            margin: 80px 0 10px;
+            font-size: 24px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .contact-icons {
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        section {
+            padding: 20px;
+            border-top: 1px solid #f0f0f0;
+            background-color: #fff;
+            border-left: 4px solid #2e3b85;
+            border-right: 4px solid #2e3b85;
+            margin: 0;
+        }
+
+        section + section {
+            margin-top: 0;
+        }
+
+        section h2 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        section p {
+            margin: 10px 0;
+            font-size: 16px;
         }
 
         button {
-            display: block;
-            position: relative;
-            background: none;
-            color: inherit;
-            border: none;
-            padding: 0;
-            font: inherit;
-            text-transform: inherit;
-            letter-spacing: inherit;
-            text-shadow: inherit;
-            cursor: pointer;
-            outline: inherit;
-            z-index: 10;
-        }
-
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
-        .big {
-            font-size: 150%;
-        }
-
-        .med {
-            font-size: 100%;
-            letter-spacing: .5px;
-        }
-
-        .small {
-            font-size: 65%;
-            letter-spacing: .5px;
-        }
-
-        .no-space {
-            letter-spacing: 0px;
-        }
-
-        .card {
-            background-color: #f4f1eb;
-            background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
-            height: 200px;
-            width: 350px;
-            margin: 20vh auto 0 auto;
-            padding: 20px 10px 10px 10px;
-            transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg);
-            box-shadow: 0;
-            transition: transform .4s ease,
-                        box-shadow .4s ease;
-        }
-
-        .card:hover {
-            cursor: pointer;
-            transform: rotateX(60deg) rotateY(0deg) rotateZ(45deg) translateZ(10px);
-            box-shadow: 20px 20px 20px rgba(0, 0, 0, .4);
-        }
-
-        .card:focus {
-            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(10px);
-            box-shadow: 0px 10px 10px rgba(0, 0, 0, .4);
-        }
-
-        .card:focus::before {
-            transform: skewX(0deg) translateX(0px) translateY(0px);
-            height: 0px;
-        }
-
-        .card:focus::after {
-            transform: skewY(0deg) translateX(0px) translateY(0px);
-            width: 0px;
-        }
-
-        .card::before,
-        .card::after {
-            content: "";
-            position: absolute;
-            display: block;
-            background-color: grey;
-            transition: transform .4s ease,
-                        height .4s ease,
-                        width .4s ease;
-        }
-
-        .card::before {
             width: 100%;
-            height: 6px;
-            bottom: 0;
-            left: 0;
-            transform: skewX(45deg) translateX(-3px) translateY(6px);
+            padding: 10px;
+            background-color: #2e3b85;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        .card::after {
-            height: 100%;
-            width: 6px;
-            top: 0;
-            right: 0;
-            transform: skewY(45deg) translateX(6px) translateY(-3px);
+        button:hover {
+            background-color: #1d285d;
         }
 
-        .row {
-            display: block;
-            text-align: center;
+        .web-links a {
+            color: #2e3b85;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
         }
 
-        .row:nth-child(2) {
-            margin: 35px 0 50px 0;
-        }
-
-        .left {
-            float: left;
-        }
-
-        .right {
-            float: right;
-        }
-
-        p {
-            margin: 0;
+        .web-links i {
+            margin-right: 8px;
         }
     </style>
 </head>
 <body>
-    <button class="card">
-        <div class="row clearfix">
-            <div class="left big">212 555 6342</div>
-            <div class="right">
-                <p><span class="big">P</span>ierce &amp; <span class="big">P</span>ierce</p>
-                <p><span class="med no-space">M</span><span class="small no-space">ergers and </span><span class="med no-space">A</span><span class="small no-space">cquisitions</span></p>
+    <div class="preloader">
+        <img src="logo-sahel-blu.png" alt="Loading Logo">
+    </div>
+    <div class="container">
+        <header>
+            <img src="logo-sahel-blu.png" alt="Profile Picture" class="profile-pic">
+            <h1>Monem GALLOUJI</h1>
+            <p>Sales Department</p>
+            <div class="contact-icons">
+                <a href="tel:+21648083976"><i class="fas fa-phone-alt"></i></a>
+                <a href="sms:+21648083976"><i class="fas fa-sms"></i></a>
+                <a href="mailto:mgallouji@saheltunisie.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/company/sahel-line/?trk=public_profile_experience-item_profile-section-card_image-click&originalSubdomain=tn"><i class="fab fa-linkedin"></i></a>
             </div>
-        </div>
-        <div class="row">
-            <p><span class="big">P</span>atrick <span class="big">Bateman</span></p>
-            <p><span class="big">V</span>ice <span class="big">P</span>resident</p>
-        </div>
-        <div class="row">
-            <p><span class="med">358 E</span><span class="small">xchange </span><span class="med">P</span><span class="small">lace </span><span class="med">N</span><span class="small">ew </span><span class="med">Y</span><span class="small">ork</span><span class="med">, N. Y. 10099 F</span><span class="small">ax </span><span class="med">212 555 6390 T</span><span class="small">elex </span><span class="med">10 4534</span></p>
-        </div>
-    </button>
+        </header>
+        <section class="contact">
+            <h2>Contact</h2>
+            <p><strong>Mobile:</strong> <a href="tel:+21648083976">+216 48 083 976</a></p>
+            <p><strong>Work Phone:</strong> <a href="tel:+21674212655">+216 74 212 655</a></p>
+            <p><strong>Fax:</strong> +216 74 211 964</p>
+            <p><strong>Email:</strong> <a href="mailto:mgallouji@saheltunisie.com">mgallouji@saheltunisie.com</a></p>
+            <p><strong>Company:</strong> Sahel Line</p>
+        </section>
+        <section class="location">
+            <h2>Location</h2>
+            <p>Residence El Corniche Rue Mohamed Hedi Khefacha App N°A52 5ème étage 3000 Sfax - Tunisia</p>
+            <button onclick="window.open('https://www.google.com/maps?q=Residence El Corniche Rue Mohamed Hedi Khefacha App N°A52 5ème étage 3000 Sfax - Tunisia', '_blank')">Show on Map</button>
+        </section>
+       
+    </div>
+
+    <script>
+        window.addEventListener('load, function() {
+            const preloader = document.querySelector('.preloader');
+            const container = document.querySelector('.container');
+
+            preloader.style.opacity = '0';
+            preloader.style.transition = 'opacity 1s ease';
+
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                container.style.display = 'block';
+                document.body.style.overflow = 'auto'; // Enable scrolling after load
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
