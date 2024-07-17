@@ -57,11 +57,9 @@
         .profile-pic {
             width: 100px;
             height: 100px;
-            border-radius: 50%;
             position: absolute;
             top: -50px;
             left: calc(50% - 50px);
-            border: 5px solid #fff;
         }
 
         header h1 {
@@ -93,7 +91,11 @@
             background-color: #fff;
             border-left: 4px solid #2e3b85;
             border-right: 4px solid #2e3b85;
-            margin: 10px 0;
+            margin: 0;
+        }
+
+        section + section {
+            margin-top: 10px;
         }
 
         section h2 {
